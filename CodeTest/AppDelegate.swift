@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  CodeTest
 //
-//  Created by Badhon Jain on 8/13/20.
+//  Created by Farzana Sultana on 8/13/20.
 //  Copyright © 2020 Self. All rights reserved.
 //
 
