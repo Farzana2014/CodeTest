@@ -9,8 +9,34 @@
 import SwiftUI
 
 struct HomeView: View {
+    @ObservedObject var viewmodel = ResultStringViewModel()
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            VStack{
+                if viewmodel.loading {
+                    ActivityIndicator(color: Color.blue, size: 50)
+                } else {
+                    
+                    if (viewmodel.resultStrings.requiredString.count > 0) {
+                        List {
+                            Text(viewmodel.resultStrings.requiredString)
+                                .font(.system(size: 15))
+                                .foregroundColor(Color.black).lineLimit(nil).padding(20)
+                        }.onAppear {
+                            UITableView.appearance().separatorColor = .clear
+                        }
+                    } else {
+                        VStack(alignment: .center) {
+                            Text("No movies or error")
+                        }
+                    }
+                    
+                }
+            }.onAppear{
+                self.viewmodel.loadData()
+            }
+            }.navigationBarTitle("Code Test")
+        
     }
 }
 

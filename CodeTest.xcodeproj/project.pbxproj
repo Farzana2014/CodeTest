@@ -14,6 +14,11 @@
 		749D1B5524E59D110048A6B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 749D1B5324E59D110048A6B5 /* LaunchScreen.storyboard */; };
 		749D1B6024E59D110048A6B5 /* CodeTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D1B5F24E59D110048A6B5 /* CodeTestTests.swift */; };
 		749D1B6E24E59D580048A6B5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D1B6D24E59D580048A6B5 /* HomeView.swift */; };
+		74F5B7A224E6C3AA00E25B0D /* ResultString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F5B7A124E6C3AA00E25B0D /* ResultString.swift */; };
+		74F5B7A424E6C43800E25B0D /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F5B7A324E6C43800E25B0D /* APIService.swift */; };
+		74F5B7A624E6C47D00E25B0D /* ServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F5B7A524E6C47D00E25B0D /* ServiceProtocol.swift */; };
+		74F5B7A824E6C7E400E25B0D /* ResultStringViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F5B7A724E6C7E400E25B0D /* ResultStringViewModel.swift */; };
+		74F5B7AC24E6CB5600E25B0D /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F5B7AB24E6CB5600E25B0D /* ActivityIndicator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +43,11 @@
 		749D1B5F24E59D110048A6B5 /* CodeTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeTestTests.swift; sourceTree = "<group>"; };
 		749D1B6124E59D110048A6B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		749D1B6D24E59D580048A6B5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		74F5B7A124E6C3AA00E25B0D /* ResultString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultString.swift; sourceTree = "<group>"; };
+		74F5B7A324E6C43800E25B0D /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		74F5B7A524E6C47D00E25B0D /* ServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProtocol.swift; sourceTree = "<group>"; };
+		74F5B7A724E6C7E400E25B0D /* ResultStringViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultStringViewModel.swift; sourceTree = "<group>"; };
+		74F5B7AB24E6CB5600E25B0D /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				749D1B6D24E59D580048A6B5 /* HomeView.swift */,
+				74F5B7AB24E6CB5600E25B0D /* ActivityIndicator.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -120,6 +131,7 @@
 		749D1B6B24E59D2C0048A6B5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				74F5B7A124E6C3AA00E25B0D /* ResultString.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -127,6 +139,9 @@
 		749D1B6C24E59D350048A6B5 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				74F5B7A324E6C43800E25B0D /* APIService.swift */,
+				74F5B7A524E6C47D00E25B0D /* ServiceProtocol.swift */,
+				74F5B7A724E6C7E400E25B0D /* ResultStringViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -233,8 +248,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				749D1B4924E59D0B0048A6B5 /* AppDelegate.swift in Sources */,
+				74F5B7A424E6C43800E25B0D /* APIService.swift in Sources */,
 				749D1B6E24E59D580048A6B5 /* HomeView.swift in Sources */,
+				74F5B7A624E6C47D00E25B0D /* ServiceProtocol.swift in Sources */,
+				74F5B7AC24E6CB5600E25B0D /* ActivityIndicator.swift in Sources */,
 				749D1B4B24E59D0B0048A6B5 /* SceneDelegate.swift in Sources */,
+				74F5B7A224E6C3AA00E25B0D /* ResultString.swift in Sources */,
+				74F5B7A824E6C7E400E25B0D /* ResultStringViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
