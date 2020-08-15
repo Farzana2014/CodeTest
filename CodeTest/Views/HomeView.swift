@@ -12,11 +12,11 @@ struct HomeView: View {
     @ObservedObject var viewmodel = ResultStringViewModel()
     var body: some View {
         NavigationView {
-            VStack{
+            VStack {
+                Spacer()
                 if viewmodel.loading {
                     ActivityIndicator(color: Color.blue, size: 50)
                 } else {
-                    
                     if (viewmodel.resultStrings.requiredString.count > 0) {
                         List {
                             Text(viewmodel.resultStrings.requiredString)
@@ -27,15 +27,26 @@ struct HomeView: View {
                         }
                     } else {
                         VStack(alignment: .center) {
-                            Text("No movies or error")
+                            Text("No Data or error")
                         }
                     }
-                    
                 }
-            }.onAppear{
-                self.viewmodel.loadData()
-            }
-            }.navigationBarTitle("Code Test")
+                
+                Spacer()
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        // CAll API Load Data
+                        self.viewmodel.loadData()
+                    }) {
+                        Text("Tap").font(.system(.largeTitle)).foregroundColor(Color.blue).lineLimit(nil).padding(0)
+                    }
+                    Spacer()
+                }
+                Spacer()
+            }.navigationBarTitle(Text("Code Test"), displayMode: .automatic)       .navigationBarHidden(false).foregroundColor(Color.blue)
+            
+        }
         
     }
 }
