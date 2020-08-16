@@ -19,7 +19,7 @@ struct HomeView: View {
                 } else {
                     if (viewmodel.resultStrings.requiredString.count > 0) {
                         List {
-                            Text(viewmodel.resultStrings.requiredString)
+                            Text(viewmodel.resultStrings.formattedString)
                                 .font(.system(size: 15))
                                 .foregroundColor(Color.black).lineLimit(nil).padding(20)
                         }.onAppear {
