@@ -9,5 +9,5 @@
 import Foundation
 
 struct ResultString: Codable {
-    public var requiredString: String
+    var requiredString: String
 }

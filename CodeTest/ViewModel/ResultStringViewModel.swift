@@ -6,9 +6,10 @@
 //  Copyright © 2020 Self. All rights reserved.
 //
 
-import Foundation
+import Combine
 
 class ResultStringViewModel: ObservableObject {
+    
     @Published var resultStrings = ResultString(requiredString: "")
     @Published var loading = false
 
@@ -27,10 +28,10 @@ class ResultStringViewModel: ObservableObject {
                 return
             }
            // self.processingString = allString.trimmingCharacters(in: .whitespacesAndNewlines)
-           self.processingString = self.getEvery10thCharacter(string:allString)
-           self.processingString = self.processingString.appending(self.getLastCharacter(string:allString))
-           self.processingString = self.processingString.appending(self.getWordList(string:allString))
-           self.resultStrings.requiredString = self.processingString
+//           self.processingString = self.getEvery10thCharacter(string:allString)
+//           self.processingString = self.processingString.appending(self.getLastCharacter(string:allString))
+//           self.processingString = self.processingString.appending(self.getWordList(string:allString))
+           self.resultStrings.requiredString = allString
         }
     }
     
