@@ -26,7 +26,7 @@ struct HomeView: View {
                     if (viewmodel.resultStrings.requiredString.count > 0) {
                         List {
                             Text(viewmodel.resultStrings.formattedString)
-                                .font(.system(size: 15))
+                                .font(.system(size: 20))
                                 .foregroundColor(Color.black).lineLimit(nil).padding(20)
                         }.onAppear {
                             UITableView.appearance().separatorColor = .clear
@@ -49,20 +49,20 @@ struct HomeView: View {
                         if (!self.isNetworkRechable(with: flags)){
                             self.showAlert = true
                         } else {
-                        // CAll API Load Data
+                            // CAll API Load Data
                             self.viewmodel.loadData()
                         }
                     }) {
-                        Text("Fetch Data").font(.system(.largeTitle)).foregroundColor(Color.blue).lineLimit(nil).padding(0)
+                        Text("Show Data").font(.system(.largeTitle)).foregroundColor(Color.blue).lineLimit(nil).padding(0)
                     }
                     Spacer()
                 }
                 Spacer()
             }.navigationBarTitle(Text("Code Test"), displayMode: .automatic)       .navigationBarHidden(false).foregroundColor(Color.blue)
-            .alert(isPresented: self.$showAlert) {
-                Alert(title: Text("No internet connection"), message: Text("Please try again"), dismissButton: .default(Text("OK")))
+                .alert(isPresented: self.$showAlert) {
+                    Alert(title: Text("No internet connection"), message: Text("Please try again"), dismissButton: .default(Text("OK")))
             }
-                
+            
             
         }
         

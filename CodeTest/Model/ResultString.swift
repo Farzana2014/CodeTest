@@ -23,21 +23,25 @@ struct ResultString: Codable {
     private (set) var characters10th = [String]()
     private (set) var formattedString = ""
     
+    fileprivate mutating func extractedSolidString() {
+        //print("FulL - \(requiredString.count) :" + requiredString)
+        
+        requiredStringSolid = requiredString.trimmingCharacters(in: .newlines)
+        requiredStringSolid = requiredStringSolid.replacingOccurrences(of: "\t", with: "")
+        requiredStringSolid = requiredStringSolid.replacingOccurrences(of: "\n", with: "")
+        while requiredStringSolid.last?.isWhitespace == true { requiredStringSolid = String(requiredStringSolid.dropLast()) }
+        
+        print("Solid  - \(requiredStringSolid.count) :" + requiredStringSolid)
+    }
+    
     private mutating func setValues(){
         requiredStringSolid = ""
         lastCharacter = ""
         characters10th.removeAll()
 
         if requiredString.count > 0 {
-            //print("FulL - \(requiredString.count) :" + requiredString)
-
-            requiredStringSolid = requiredString.trimmingCharacters(in: .newlines)
-            requiredStringSolid = requiredStringSolid.replacingOccurrences(of: "\t", with: "")
-            requiredStringSolid = requiredStringSolid.replacingOccurrences(of: "\n", with: "")
-            while requiredStringSolid.last?.isWhitespace == true { requiredStringSolid = String(requiredStringSolid.dropLast()) }
-
-            print("Solid  - \(requiredStringSolid.count) :" + requiredStringSolid)
             
+            extractedSolidString()
             var tempString = considerSpecialChar ? requiredString : requiredStringSolid
  
             if tempString.count >= 0 {
@@ -45,7 +49,6 @@ struct ResultString: Codable {
             }
             
             formattedString += "Last Character : \(lastCharacter)\n\n"
-            
             formattedString += "Every 10th Character : \n\n"
             
             var arrayOfWords = tempString.split {
@@ -63,7 +66,7 @@ struct ResultString: Codable {
             formattedString += "\n\n Count of every word : \n\n"
  
             for i in 0...arrayOfWords.count - 1 {
-                formattedString += "\(String(i)) \("th index :") \(arrayOfWords[i].count)\n"
+                formattedString += "\(String(arrayOfWords[i])) \(":") \(arrayOfWords[i].count)\n"
             }
 
             arrayOfWords.removeAll()
