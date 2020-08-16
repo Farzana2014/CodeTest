@@ -7,9 +7,15 @@
 //
 
 import SwiftUI
+import SystemConfiguration
 
 struct HomeView: View {
+    
+    private let reachability = SCNetworkReachabilityCreateWithName(nil, BASE_URL)
+    @State private var showAlert = false
     @ObservedObject var viewmodel = ResultStringViewModel()
+    
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -27,7 +33,7 @@ struct HomeView: View {
                         }
                     } else {
                         VStack(alignment: .center) {
-                            Text("No Data or error")
+                            Text(viewmodel.processingString)
                         }
                     }
                 }
@@ -36,18 +42,38 @@ struct HomeView: View {
                 HStack {
                     Spacer()
                     Button(action: {
+                        
+                        var flags = SCNetworkReachabilityFlags()
+                        SCNetworkReachabilityGetFlags(self.reachability!, &flags)
+                        
+                        if (!self.isNetworkRechable(with: flags)){
+                            self.showAlert = true
+                        } else {
                         // CAll API Load Data
-                        self.viewmodel.loadData()
+                            self.viewmodel.loadData()
+                        }
                     }) {
-                        Text("Tap").font(.system(.largeTitle)).foregroundColor(Color.blue).lineLimit(nil).padding(0)
+                        Text("Fetch Data").font(.system(.largeTitle)).foregroundColor(Color.blue).lineLimit(nil).padding(0)
                     }
                     Spacer()
                 }
                 Spacer()
             }.navigationBarTitle(Text("Code Test"), displayMode: .automatic)       .navigationBarHidden(false).foregroundColor(Color.blue)
+            .alert(isPresented: self.$showAlert) {
+                Alert(title: Text("No internet connection"), message: Text("Please try again"), dismissButton: .default(Text("OK")))
+            }
+                
             
         }
         
+    }
+    
+    private func isNetworkRechable(with flags: SCNetworkReachabilityFlags) -> Bool{
+        let isReachable = flags.contains(.reachable)
+        let needsConnection = flags.contains(.connectionRequired)
+        let canConnectAutomatically = flags.contains(.connectionOnDemand) || flags.contains(.connectionOnTraffic)
+        let canConnectionWithoutInteraction = canConnectAutomatically && !flags.contains(.interventionRequired)
+        return isReachable && (!needsConnection || canConnectionWithoutInteraction)
     }
 }
 
