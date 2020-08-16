@@ -22,6 +22,7 @@ class ResultStringTests: XCTestCase {
     }
     
     func testSuccessParser() {
+        
         guard let stringData = testString.data(using: .utf8) else { return }
         
         let allStrings = String(data: stringData, encoding: String.Encoding(rawValue: String.Encoding.utf8.rawValue))
